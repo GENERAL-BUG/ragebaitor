@@ -3,7 +3,7 @@ import { useRage } from '../context/RageContext';
 import { sound } from '../services/audioEngine';
 
 export const LoadingScreen: React.FC = () => {
-  const { setScreen, triggerRickroll } = useRage();
+  const { setScreen } = useRage();
   const [phaseIndex, setPhaseIndex] = useState(0);
 
   const stages = [
@@ -27,9 +27,8 @@ export const LoadingScreen: React.FC = () => {
       sound.playClick(1.1);
     }, 2600);
 
-    // Final Climax: Open Rickroll in ONE new tab and transition to RESULT
+    // Final Transition to RESULT
     const t3 = setTimeout(() => {
-      triggerRickroll();
       setScreen('RESULT');
     }, 3900);
 

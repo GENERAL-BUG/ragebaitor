@@ -7,6 +7,7 @@ export const Step5Verification: React.FC = () => {
   const { setScreen, setCurrentStep, addToast } = useRage();
 
   const handleFinalSubmit = () => {
+    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
     sound.playGong();
     addToast({ title: 'LOG', message: 'Proceed.', type: 'info' });
     setScreen('ANALYZING');
