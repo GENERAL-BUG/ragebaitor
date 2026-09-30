@@ -1,0 +1,378 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====================================================
+   ATMAN.io — INTENTIONAL UX ATROCITY ENGINE
+   CSS Philosophy: "A Competent Developer Went Rogue"
+   ==================================================== */
+
+@layer base {
+  :root {
+    --bad-yellow: #FFD600;
+    --bad-purple: #4B0082;
+    --bad-green: #00FF41;
+    --bad-red: #FF2020;
+    --bad-cyan: #00FFFF;
+    --bad-orange: #FF6200;
+    --bad-magenta: #FF00FF;
+    --bad-lime: #BFFF00;
+    --bad-beige: #F5E6C8;
+    --bg-grey: #1a1a1a;
+    --border-heavy: #FFD600;
+    --text-main: #F0F0F0;
+    --text-dark: #111;
+    --bad-blue: #0000FF;
+    --corporate-grey: #8B8B8B;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto; /* no smooth scroll here */
+  }
+
+  body {
+    background-color: #1a1a1a;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255, 214, 0, 0.03) 39px,
+        rgba(255, 214, 0, 0.03) 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 39px,
+        rgba(255, 214, 0, 0.03) 39px,
+        rgba(255, 214, 0, 0.03) 40px
+      );
+    color: #F0F0F0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Make headings inconsistent on purpose */
+  h1 { font-family: 'Georgia', serif; }
+  h2 { font-family: 'Courier New', monospace; }
+  h3 { font-family: 'Arial Black', sans-serif; }
+  h4 { font-family: 'Verdana', sans-serif; }
+}
+
+/* ========================
+   UGLY UTILITY CLASSES
+   ======================== */
+
+/* The primary CTA button — obnoxiously large, wrong color */
+.btn-atrocity-primary {
+  background: #FFD600;
+  color: #000;
+  border: 3px solid #FF0000;
+  font-family: 'Arial Black', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 14px 28px;
+  cursor: pointer;
+  outline: 2px dotted #FF00FF;
+  outline-offset: 2px;
+  transition: background 0.1s;
+}
+.btn-atrocity-primary:hover {
+  background: #FF6200;
+  color: #fff;
+}
+
+/* A small button next to the huge one */
+.btn-atrocity-small {
+  background: #4B0082;
+  color: #00FF41;
+  border: 2px solid #00FF41;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  padding: 6px 10px;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+.btn-atrocity-small:hover {
+  background: #222;
+  color: #FF00FF;
+}
+
+/* Fake disabled button */
+.btn-fake-disabled {
+  background: #555;
+  color: #888;
+  border: 2px solid #444;
+  font-family: 'Verdana', sans-serif;
+  font-size: 12px;
+  padding: 8px 18px;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Government form style box */
+.gov-box {
+  background: #2a2a2a;
+  border: 2px solid #FFD600;
+  border-left: 8px solid #FF0000;
+  padding: 12px 16px;
+}
+
+/* Status panel - system monitor look */
+.status-panel {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  border-top: 3px solid #00FF41;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #00FF41;
+  padding: 8px 12px;
+}
+
+/* Ugly card */
+.ugly-card {
+  background: #222;
+  border: 2px solid #FFD600;
+  border-radius: 0px; /* deliberately no rounding */
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+/* Interest checkbox tile */
+.interest-tile {
+  background: #1a1a1a;
+  border: 2px solid #555;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: 'Verdana', sans-serif;
+  font-size: 12px;
+  color: #ccc;
+  text-align: left;
+  transition: background 0.1s, border-color 0.1s;
+}
+.interest-tile:hover {
+  background: #2a2a2a;
+  border-color: #FFD600;
+  color: #FFD600;
+}
+.interest-tile.selected {
+  background: #4B0082;
+  border-color: #00FF41;
+  color: #00FF41;
+  outline: 1px dashed #FF00FF;
+}
+
+/* System status indicators */
+.sys-ok { color: #00FF41; }
+.sys-warn { color: #FFD600; }
+.sys-error { color: #FF2020; }
+.sys-unknown { color: #8B8B8B; }
+
+/* Question radio option */
+.q-option {
+  background: #1a1a1a;
+  border: 1px solid #555;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: 'Verdana', sans-serif;
+  font-size: 12px;
+  color: #ccc;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  transition: all 0.1s;
+}
+.q-option:hover {
+  border-color: #FFD600;
+  color: #FFD600;
+  background: #222;
+}
+.q-option.selected {
+  border-color: #00FF41;
+  background: #0a1a0a;
+  color: #00FF41;
+  border-left: 4px solid #00FF41;
+}
+
+/* Old-school progress bar */
+.ugly-progress-track {
+  background: #000;
+  border: 2px inset #555;
+  height: 22px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.ugly-progress-fill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #FFD600,
+    #FFD600 8px,
+    #FF6200 8px,
+    #FF6200 16px
+  );
+  transition: width 0.5s steps(4, end);
+}
+
+/* Old-school modal/popup */
+.atrocity-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.atrocity-modal {
+  background: #1a1a2e;
+  border: 4px solid #FFD600;
+  border-radius: 0;
+  box-shadow: 8px 8px 0px #FF0000, inset 0 0 0 2px #333;
+  max-width: 480px;
+  width: 95%;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+}
+.atrocity-modal-header {
+  background: #FFD600;
+  color: #000;
+  padding: 10px 16px;
+  font-family: 'Arial Black', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #FF0000;
+}
+.atrocity-modal-body {
+  padding: 20px 16px;
+  color: #ddd;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.atrocity-modal-footer {
+  border-top: 2px dashed #444;
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Toast notifications - ugly system look */
+.ugly-toast {
+  background: #0a0a0a;
+  border: 2px solid #FFD600;
+  border-left: 5px solid #FF0000;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  padding: 10px 12px;
+  color: #00FF41;
+  max-width: 320px;
+  box-shadow: 4px 4px 0 #000;
+}
+.ugly-toast.judgment { border-left-color: #FF00FF; color: #FF00FF; }
+.ugly-toast.warning { border-left-color: #FFD600; color: #FFD600; }
+.ugly-toast.alert { border-left-color: #FF2020; color: #FF2020; }
+
+/* Progress/step indicator - ugly */
+.step-indicator {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #888;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+.step-indicator .active-step {
+  color: #FFD600;
+  font-weight: bold;
+}
+
+/* Blinking text animation */
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.3; }
+}
+.blink { animation: blink 1.2s infinite; }
+
+/* Marquee-style shimmer for loading */
+@keyframes marquee-slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* Shake animation for buttons after wrong click */
+@keyframes hard-shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-6px); }
+  30% { transform: translateX(6px); }
+  45% { transform: translateX(-4px); }
+  60% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+  90% { transform: translateX(2px); }
+}
+.shake-hard { animation: hard-shake 0.4s ease; }
+
+/* Custom scrollbar - ugly yellow */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #111; border-left: 1px solid #333; }
+::-webkit-scrollbar-thumb { background: #FFD600; border: 1px solid #000; }
+::-webkit-scrollbar-thumb:hover { background: #FF6200; }
+
+/* Range input - ugly */
+input[type=range] {
+  -webkit-appearance: none;
+  background: #333;
+  border: 2px solid #555;
+  height: 12px;
+  border-radius: 0;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 28px;
+  width: 16px;
+  background: #FFD600;
+  cursor: ew-resize;
+  border: 2px solid #FF0000;
+  border-radius: 0;
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* Textarea - ugly form style */
+textarea.ugly-input {
+  background: #0d0d0d;
+  border: 2px solid #555;
+  border-top: 2px solid #888;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  padding: 10px;
+  resize: vertical;
+  width: 100%;
+  outline: none;
+}
+textarea.ugly-input:focus {
+  border-color: #FFD600;
+  box-shadow: 0 0 0 2px rgba(255,214,0,0.2);
+}
+
+/* Selection override */
+::selection {
+  background: #FF00FF;
+  color: #000;
+}
